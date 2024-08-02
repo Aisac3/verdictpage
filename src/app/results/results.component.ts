@@ -13,11 +13,12 @@ export class ResultsComponent implements OnChanges {
   @Output() close = new EventEmitter<void>();
 
   ngOnChanges(changes: SimpleChanges) {
-    console.log(this.selectedOption)
-    // if (changes['selectedOption'] && changes['selectedOption'].currentValue) {
-    //   console.log('Selected Option:', changes['selectedOption'].currentValue);
-    // }
+    if (changes['selectedOption'] && changes['selectedOption'].currentValue) {
+      console.log('Selected Option:', changes['selectedOption'].currentValue);
+    }
   }
+  
+  
 
   closeData() {
     this.close.emit();
