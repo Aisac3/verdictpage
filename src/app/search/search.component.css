@@ -1,0 +1,28 @@
+.cearchinput {
+    position: relative;
+    width: 600px; /* Adjust width as needed */
+}
+
+.cearchinput input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px 4px 0 0; /* Rounded corners for the top */
+    margin: 0;
+}
+
+
+.auto-search_mob, .auto-search-home {
+    position: absolute;
+    top: calc(100% - 1px); /* Position dropdown just below the input */
+    left: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+    border-top: none;
+    background-color: #fff;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000;
+    top: calc(100% - 1px);
+}

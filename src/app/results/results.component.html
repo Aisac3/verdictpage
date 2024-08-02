@@ -1,0 +1,42 @@
+<link
+  href="https://c.marketsmojo.com/mm-header/header.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  href="https://c.marketsmojo.com/header_nav.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  href="https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+
+<p>results work</p>
+
+
+  
+<!-- <div *ngIf="selectedOptionData" class="selected-data">
+    <h2>Search Results for: {{ selectedOption }}</h2>
+    <p>Description: {{ selectedOptionData.description }}</p>
+    <p>Details: {{ selectedOptionData.details }}</p>
+    <button (click)="closeData()">Close</button>
+  </div> -->
+  
+  <div *ngIf="selectedOption" class="selected-data">
+    <h2>Search Results for: {{ selectedOption.Company }}</h2>
+    <p *ngIf="selectedOption.description">Description: {{ selectedOption.description }}</p>
+    <p *ngIf="selectedOption.details">Details: {{ selectedOption.details }}</p>
+    <p *ngIf="selectedOption.ScriptCode || selectedOption.Symbol">
+      <span *ngIf="selectedOption.ScriptCode">BSE: {{ selectedOption.ScriptCode }}</span>
+      <span *ngIf="selectedOption.ScriptCode && selectedOption.Symbol"> | </span>
+      <span *ngIf="selectedOption.Symbol">NSE: {{ selectedOption.Symbol }}</span>
+    </p>
+    <button (click)="closeData()">Close</button>
+  </div>
+  
+  

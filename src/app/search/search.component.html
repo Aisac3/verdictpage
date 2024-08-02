@@ -1,0 +1,96 @@
+<link
+  href="https://c.marketsmojo.com/mm-header/header.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  href="https://c.marketsmojo.com/header_nav.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  href="https://c.marketsmojo.com/mojoprofessional/verdict.css?v=20240703143100"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+
+<div class="listmojoarea_cio">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="searchhead">
+        <p class="searchheadtext">
+          <span class="mojolisthead2"
+            >Verdict is the World's 1st Real-Time Research Service​</span
+          >
+        </p>
+
+        <div class="cearchinput">
+          <div class="input-group" style="display: flex">
+            <input
+              type="text"
+              class="form-control stiput"
+              id="searchtext_home_desk"
+              [(ngModel)]="searchTermsHome"
+              autocomplete="off"
+              placeholder="Find your stock verdict"
+              (focus)="onFocus()"
+              (blur)="onBlur()"
+              (ngModelChange)="onSearchChange()"
+            />
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <ul
+              class="auto-search_mob auto-search-home"
+              id="searchTermsHome_desk"
+              [ngStyle]="{ display: drophide === true ? 'none' : 'block' }"
+            >
+              <!-- Display suggestions -->
+              <li *ngIf="filteredSuggestions.length > 0">
+                <ng-container *ngFor="let entry of filteredSuggestions" >
+                  <a
+                    id="{{ entry.Company }}"
+                    class="specialeffects"
+                    (click)="selectSuggestion(entry)"
+                  >
+                    <span class="suggest-name" [innerHTML]="entry.Company"></span>
+                    <span *ngIf="entry.ScriptCode || entry.Symbol">
+                      (
+                      <span *ngIf="entry.ScriptCode">BSE - {{ entry.ScriptCode }}</span>
+                      <span *ngIf="entry.ScriptCode && entry.Symbol"> | </span>
+                      <span *ngIf="entry.Symbol">NSE - {{ entry.Symbol }}</span>
+                      )
+                    </span>
+                  </a>
+                </ng-container>
+              </li>
+          
+              <!-- <li *ngIf="filteredSuggestions.length < 0">
+                <a class="specialeffects" href="javascript:void(0)">
+                  <span class="suggest-name">No stocks results found</span>
+                </a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+        </div>
+     
+
+      </div>
+
+      
+      
+      
+    </div>
+    
+
+ 
+</div>
+
+
