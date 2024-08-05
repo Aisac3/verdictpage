@@ -27,14 +27,24 @@
     <button (click)="closeData()">Close</button>
   </div> -->
   
-  <div *ngIf="selectedOption" class="selected-data">
+  <div *ngIf="selectedOption" class="selected-data" >
+    
 
-    <h2>Search Results for: {{ selectedOption.Company }}</h2>
+     <!-- <a href="javascript:void(0)" class="modal-action modal-close close-blk">
+      <i class="fa fa-times"></i>
+    </a> -->
+    
+     <p class="reportheading"  ng-cloak> 
+      <strong>{{ coverpage?.data?.stock_details?.short_name }} Verdict Report</strong> <br />
+      This Real-Time Stock Analysis Report was generated on <strong>{{ currentDate | date: 'd MMMM y' }} at <span>{{ currentDate | date: 'h:mm a' }}</span></strong>
+    </p> 
+    
     <!---->
 
 
-
-    <div class="verdictbutton">
+    <div class="arrange" style="display: flex; width: 50%;">
+    <div class="verdictbutton" style="flex: 1;"   >
+      <button (click)="closeData()" class="modal-action modal-close close-blk"><i class="fa fa-times"></i></button>
       <div class="mojobuttoncontent2" ng-if="getAppType() == 'other' || ((getAppType()=='iosapp' || getAppType()=='androidapp') && getAppVersionInteger() >= 3.2)">
         <div ng-click="getPdf(sid,exch);" class="mojotpbutton_new" style="cursor:pointer;"><a href="javascript:void(0);">DOWNLOAD</a></div>
       </div>
@@ -70,7 +80,7 @@
 
    <!--------------------------------------------------------------> 
    
-    <div class="col-md-6">
+    <div class="col-md-6" style=" display:flex; width: 100%;transform: translateX(20%);" >
       <div class="top-main_cover"><!--[ngClass]="getCoverClass()"-->
         <div class="maindivpage" >
           <div class="stcover1">
@@ -109,14 +119,14 @@
               </table>
             </div>
             <div class="stcover7">
-              <div class="row">
+              <div class="row" style="display: flex;">
                 <div class="col-xs-6 stcover8">
                   <div class="stcover12" *ngFor="let summ of coverpage?.data?.cover_page_data?.cover_summary">
                     <p class="stcover10">{{summ.big_txt}}</p>
                     <p class="stcover11">{{summ.small_txt}}</p>
                   </div>
                 </div>
-                <div class="col-xs-6 stcover13">
+                <div class="col-xs-6 stcover13" style="margin-left:10px ;">
                   <div class="stcover14">
                     <p class="stcover23">{{coverpage?.data?.stock_details?.short_name}}</p>
                   </div>
@@ -170,14 +180,14 @@
     
 
     <!---->
-    <p *ngIf="selectedOption.description">Description: {{ selectedOption.description }}</p>
+    <!-- <p *ngIf="selectedOption.description">Description: {{ selectedOption.description }}</p>
     <p *ngIf="selectedOption.details">Details: {{ selectedOption.details }}</p>
     <p *ngIf="selectedOption.ScriptCode || selectedOption.Symbol">
       <span *ngIf="selectedOption.ScriptCode">BSE: {{ selectedOption.ScriptCode }}</span>
       <span *ngIf="selectedOption.ScriptCode && selectedOption.Symbol"> | </span>
       <span *ngIf="selectedOption.Symbol">NSE: {{ selectedOption.Symbol }}</span>
-    </p>
-    <button (click)="closeData()">Close</button>
+    </p> -->
+   </div>
   </div>
   
 
