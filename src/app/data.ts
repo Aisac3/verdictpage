@@ -36,26 +36,7 @@ export const DATA = {
         "show_score": 1,
         "recurl": ""
     },
-    {
-        "Id": 592009,
-        "Company": "<b>HDFC</b> Bank Ltd.",
-        "ScriptCode": 500180,
-        "Symbol": "HDFCBANK",
-        "url": "https://www.marketsmojo.com/news/hdfc-bank-ltd-592009",
-        "price": null,
-        "ExchangeName": "bse",
-        "sname": "HDFC Bank",
-        "tag": "News",
-        "stockprice": "1608.50",
-        "chg": "-17.75",
-        "chgp": "-1.09",
-        "chgdir": -1,
-        "score": 88,
-        "scoretext": "Strong Buy",
-        "stock_traded_status": "Active",
-        "show_score": 1,
-        "recurl": ""
-    },
+    
     {
         "Id": 1002872,
         "Company": "<b>HDFC</b> Life Insurance Company Ltd",
@@ -1628,10 +1609,9 @@ export const DATA = {
   
   ],
   data: [
-    { Company: "Example Co", description: "Example Company Description", details: "Example Company Details", ScriptCode: "12345", Symbol: "EXMPL" },
-    { Company: "Test Corp", description: "Test Corporation Description", details: "Test Corporation Details", ScriptCode: "67890", Symbol: "TEST" },
+
     //Indian Express
-    {
+    { "Company": "Indian Express",
       "code": 200,
       "message": "success",
       "data": {
@@ -1732,7 +1712,8 @@ export const DATA = {
       }
     },
   //TCS
-  {
+  { 
+    "Company":"TCS",
     "code": 200,
     "message": "success",
     "data": {
@@ -1843,7 +1824,9 @@ export const DATA = {
     }
 },
   //HDFC
-  {
+
+  { 
+    "Company":"HDFC Bank",
     "code": 200,
     "message": "success",
     "data": {
@@ -1954,7 +1937,8 @@ export const DATA = {
     }
 },
 //Infosys
-{
+{ 
+  "Company": "Infosys",
   "code": 200,
   "message": "success",
   "data": {
@@ -2065,7 +2049,8 @@ export const DATA = {
   }
 },
  //ICICI 
-{
+{ 
+  "Company":"ICICI ",
   "code": 200,
   "message": "success",
   "data": {

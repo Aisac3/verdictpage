@@ -28,7 +28,148 @@
   </div> -->
   
   <div *ngIf="selectedOption" class="selected-data">
+
     <h2>Search Results for: {{ selectedOption.Company }}</h2>
+    <!---->
+
+
+
+    <div class="verdictbutton">
+      <div class="mojobuttoncontent2" ng-if="getAppType() == 'other' || ((getAppType()=='iosapp' || getAppType()=='androidapp') && getAppVersionInteger() >= 3.2)">
+        <div ng-click="getPdf(sid,exch);" class="mojotpbutton_new" style="cursor:pointer;"><a href="javascript:void(0);">DOWNLOAD</a></div>
+      </div>
+      <span class="orverdict" ng-if="getDevice() != 'app'">OR</span>
+      <div class="row">
+        <!-- <div class="col-md-12">
+        <div class="ci6" style="color:green;" ng-if= "successmessage!=null">{{successmessage}}</div>
+        </div> -->
+      </div>
+      <div class="versend" >
+        <p class="versend2">SEND BY EMAIL</p>
+         <div class="input-group" style="display: flex; padding: 10px;">
+          <input type="text"  ng-model="emailid" class="form-control stiput" placeholder="Enter Email address" name=""  />
+          <!-- <div style="color:#F00;" ng-if= "message!=null">{{coverpage?.message}}</div> -->
+          <div style="cursor:pointer;color:#FFF; display:flex; text-align: center; padding-top: 10px; font-size: large;" class="input-group-btn verimg"  ng-click="getPdf(sid,exch,emailid);" >
+            Send Report Now
+          </div>							
+         </div>
+      </div>
+      
+      <!--<div style="width:250px; float:left; margin:auto;border:1px solid #8ac440;padding:15px;margin-top:15px;">
+        <p style="font-size:16px;font-weight:600;line-height:16px;text-align:center;">SEND BY WHATSAPP</p>
+         <div class="input-group">
+          <input type="text" class="form-control stiput" placeholder="Enter Mobile Number" name="" style="height: 28px !important;" />
+          <div class="input-group-btn">
+            <img src="images/arrow-right.png" />
+          </div>							
+         </div>
+      </div>-->
+    </div>
+
+
+
+   <!--------------------------------------------------------------> 
+   
+    <div class="col-md-6">
+      <div class="top-main_cover"><!--[ngClass]="getCoverClass()"-->
+        <div class="maindivpage" >
+          <div class="stcover1">
+            <div class="stcover2">
+              <img src="https://i.marketsmojo.com/research_pdf/verdict-01.png" />
+            </div>
+            <div class="stcover3">
+              Report as on {{ currentDate | date: 'd MMMM y' }} at <span>{{ currentDate | date: 'h:mm a' }}</span>
+            </div>
+            <!--newwwww testinggggg-->
+              
+            <div class="stcover4">
+              <table>
+                <tr>
+                  <td valign="bottom" class="stcover5">
+                    <div class="stcover6" [innerHTML]="coverpage?.data?.cover_page_data?.cover_headline"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+    
+
+
+
+
+            <div class="er_msg3" *ngIf="coverpage?.data?.show_fallstock === 'yes'">
+              <span><img src="path/to/alert-triangle.png"></span> The stock has fallen substantially in recent periods, triggering an exit condition in our portfolios regardless of the stock's current rating. NOTE- We have moved out of the stock in Model Portfolio Strategies. Therefore, we suggest you apply caution when investing in this stock.
+            </div>
+            <div class="stcover4">
+              <table>
+                <tr>
+                  <td valign="bottom" class="stcover5">
+                    <div class="stcover6" [innerHTML]="coverpage?.data?.cover_page_data?.cover_headline"></div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="stcover7">
+              <div class="row">
+                <div class="col-xs-6 stcover8">
+                  <div class="stcover12" *ngFor="let summ of coverpage?.data?.cover_page_data?.cover_summary">
+                    <p class="stcover10">{{summ.big_txt}}</p>
+                    <p class="stcover11">{{summ.small_txt}}</p>
+                  </div>
+                </div>
+                <div class="col-xs-6 stcover13">
+                  <div class="stcover14">
+                    <p class="stcover23">{{coverpage?.data?.stock_details?.short_name}}</p>
+                  </div>
+                  <div class="stcover15" *ngIf="coverpage?.data?.block_page === 0 || coverpage?.data?.total_views === 0">
+                    <div class="streportbuttonnew" [ngClass]="coverpage?.data?.cover_clr + 'bg'">
+                      <a href="javascript:void(0);">{{ coverpage?.data?.score_text | titlecase }}</a>
+                    </div>
+                  </div>
+                  <div class="stcover16_1">
+                    <p class="stcover17_1"><span>CMP:</span> <span>{{coverpage?.data?.price_info?.cmp | currency: 'INR'}}</span></p>
+                  </div>
+                  <div class="stcover16">
+                    <p class="stcover17">STOCK INFO:</p>
+                    <p class="stcover18">
+                      BSE – {{coverpage?.data?.stock_details?.scripcode}}/ NSE – {{coverpage?.data?.stock_details?.symbol}}<br />
+                      Market Cap – {{coverpage?.data?.price_info?.mcap_class}} (Rs. {{coverpage?.data?.price_info?.mcap | currency: 'INR' : 'symbol' : '1.0-0'}} cr)<br />
+                      Sector – {{coverpage?.data?.stock_details?.ind_name}}<br />
+                      52 w H/L - (Rs.) {{coverpage?.data?.price_info?.wk_high52}}/{{coverpage?.data?.price_info?.wk_low52}}
+                      <span *ngIf="coverpage?.data?.stock_details?.ind_code != 43 && coverpage?.data?.stock_details?.ind_code != 44">
+                        <br />Dividend Yield: {{coverpage?.data?.price_info?.div_yeild}}%
+                        <br />Return on Equity: {{coverpage?.data?.price_info?.roe}}%
+                        <br />Price to Book: {{coverpage?.data?.price_info?.price_to_book}}
+                      </span>
+                      <span *ngIf="coverpage?.data?.stock_details?.ind_code == 43 || coverpage?.data?.stock_details?.ind_code == 44">
+                        <br />Return on Assets: {{coverpage?.data?.price_info?.roa}}%
+                        <br />Net NPA: {{coverpage?.data?.price_info?.net_npa_perc}}%
+                        <br />Gross NPA: {{coverpage?.data?.price_info?.gross_npa_perc}}%
+                        <br />CAR: {{coverpage?.data?.price_info?.car}}%
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 stcover19">
+                  <div class="stcover20">
+                    <img src="https://i.marketsmojo.com/bottom-logo.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="stcover21">
+            <div class="stcover22">
+              <a href="https://www.marketsmojo.com" style="color:#000;">www.marketsmojo.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <!---->
     <p *ngIf="selectedOption.description">Description: {{ selectedOption.description }}</p>
     <p *ngIf="selectedOption.details">Details: {{ selectedOption.details }}</p>
     <p *ngIf="selectedOption.ScriptCode || selectedOption.Symbol">
@@ -39,4 +180,5 @@
     <button (click)="closeData()">Close</button>
   </div>
   
+
   
