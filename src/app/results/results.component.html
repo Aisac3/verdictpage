@@ -42,8 +42,8 @@
     <!---->
 
 
-    <div class="arrange" style="display: flex; width: 50%;">
-    <div class="verdictbutton" style="flex: 1;"   >
+    <div class="arrange" style="display: flex; width: 100%;">
+    <div class="verdictbutton" style="height: 100%;width: 60%; display:flex;align-items: flex-start; flex-direction: column; justify-content: flex-start; margin: 0px;"   >
       <button (click)="closeData()" class="modal-action modal-close close-blk"><i class="fa fa-times"></i></button>
       <div class="mojobuttoncontent2" ng-if="getAppType() == 'other' || ((getAppType()=='iosapp' || getAppType()=='androidapp') && getAppVersionInteger() >= 3.2)">
         <div ng-click="getPdf(sid,exch);" class="mojotpbutton_new" style="cursor:pointer;"><a href="javascript:void(0);">DOWNLOAD</a></div>
@@ -54,12 +54,12 @@
         <div class="ci6" style="color:green;" ng-if= "successmessage!=null">{{successmessage}}</div>
         </div> -->
       </div>
-      <div class="versend" >
+      <div class="versend" style="margin: 18px 0;" >
         <p class="versend2">SEND BY EMAIL</p>
          <div class="input-group" style="display: flex; padding: 10px;">
           <input type="text"  ng-model="emailid" class="form-control stiput" placeholder="Enter Email address" name=""  />
           <!-- <div style="color:#F00;" ng-if= "message!=null">{{coverpage?.message}}</div> -->
-          <div style="cursor:pointer;color:#FFF; display:flex; text-align: center; padding-top: 10px; font-size: large;" class="input-group-btn verimg"  ng-click="getPdf(sid,exch,emailid);" >
+          <div style="cursor:pointer;color:#FFF; display:flex; text-align: center; padding: 10px;" class="input-group-btn verimg"  ng-click="getPdf(sid,exch,emailid);" >
             Send Report Now
           </div>							
          </div>
@@ -82,7 +82,7 @@
    
     <div class="col-md-6" style=" display:flex; width: 100%;transform: translateX(20%);" >
       <div class="top-main_cover"><!--[ngClass]="getCoverClass()"-->
-        <div class="maindivpage" >
+        <div class="maindivpage cover{{(coverpage?.data?.block_page == 0 || coverpage?.data?.total_views == 0)?coverpage?.data?.cover_clr:'grey'}}" >
           <div class="stcover1">
             <div class="stcover2">
               <img src="https://i.marketsmojo.com/research_pdf/verdict-01.png" />
@@ -96,7 +96,9 @@
               <table>
                 <tr>
                   <td valign="bottom" class="stcover5">
-                    <div class="stcover6" [innerHTML]="coverpage?.data?.cover_page_data?.cover_headline"></div>
+                    <div class="stcover6" 
+                    [ngClass]="(coverpage?.data?.block_page == 0 || coverpage?.data?.total_views == 0) ? coverpage?.data?.cover_clr : 'grey'"
+                    [innerHTML]="coverpage?.data?.cover_page_data?.cover_headline"></div>
                   </td>
                 </tr>
               </table>

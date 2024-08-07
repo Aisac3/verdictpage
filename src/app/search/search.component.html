@@ -25,18 +25,20 @@
           >
         </p>
 
-        <div class="cearchinput">
-          <div class="input-group" style="display: flex">
+       <div class="cearchinput">
+          <div class="input-group" style="display: flex; flex: 1; ">
             <input
               type="text"
               class="form-control stiput"
               id="searchtext_home_desk"
               [(ngModel)]="searchTermsHome"
               autocomplete="off"
+              name="search terms"
               placeholder="Find your stock verdict"
               (focus)="onFocus()"
               (blur)="onBlur()"
               (ngModelChange)="onSearchChange()"
+              
             />
             <div class="input-group-btn">
               <button  class="btn btn-default" type="submit"> <!--(onclick)="getSearcheditem()"-->
@@ -51,7 +53,7 @@
               id="searchTermsHome_desk"
               [ngStyle]="{ display: drophide === true ? 'none' : 'block' }"
             >
-              <!-- Display suggestions -->
+              <!-- Display suggestions-->
               <li *ngIf="filteredSuggestions.length > 0">
                 <ng-container *ngFor="let entry of filteredSuggestions" >
                   <a
@@ -71,14 +73,18 @@
                 </ng-container>
               </li>
           
-              <!-- <li *ngIf="filteredSuggestions.length < 0">
+              <li *ngIf="filteredSuggestions.length === 0 && searchTermsHome">
                 <a class="specialeffects" href="javascript:void(0)">
                   <span class="suggest-name">No stocks results found</span>
                 </a>
-              </li> -->
+              </li>
             </ul>
           </div>
-        </div>
+        </div> 
+
+
+        
+        
         </div>
      
 

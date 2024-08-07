@@ -9,7 +9,9 @@ export class DataService {
   constructor() {}
 
   getSuggestions(term: string): Observable<any[]> {
-    const filteredSuggestions = DATA.search.filter(item =>
+    const filteredSuggestions = DATA.search
+    .filter(item => item.tag == 'Stock')
+    .filter(item =>
       item.Company.toLowerCase().includes(term.toLowerCase())
     );
     return of(filteredSuggestions);
